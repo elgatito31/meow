@@ -1,29 +1,35 @@
-// create a small thread program in c
-
 #include <stdio.h>
-#include <pthread.h>
 #include <stdlib.h>
+#include <pthread.h>
 
-void *print_message_function( void *ptr );
+#define NUM_THREADS 5
 
-int main()
-{
-    pthread_t thread1, thread2;
-    char *message1 = "Thread 1";
-    char *message2 = "Thread 2";
-    int iret1, iret2;
+void *thread_function(void *arg) {
+    int thread_id = *(int *)arg;
+    printf("Thread %d is running\n", thread_id);
+    pthread_exit(NULL);
+}
 
-    // Create independent threads each of which will execute function
-    iret1 = pthread_create( &thread1, NULL, print_message_function, (void*) message1);
-    iret2 = pthread_create( &thread2, NULL, print_message_function, (void*) message2);
+int main() {
+    pthread_t threads[NUM_THREADS];
+    int thread_args[NUM_THREADS];
+    int i;
 
-    // Wait till threads are complete before main continues. Unless we
-    // wait we run the risk of executing an exit which will terminate
-    // the process and all threads before the threads have completed.
-    pthread_join( thread1, NULL);
-    pthread_join( thread2, NULL);
+    for (i = 0; i < NUM_THREADS; i++) {
+        thread_args[i] = i;
+        if (pthread_create(&threads[i], NULL, thread_function, &thread_args[i]) != 0) {
+            fprintf(stderr, "Error creating thread %d\n", i);
+            exit(1);
+        }
+    }
 
-    printf("Thread 1 returns: %d\n",iret1);
-    printf("Thread 2 returns: %d\n",iret2);
-    exit(0);
+    for (i = 0; i < NUM_THREADS; i++) {
+        if (pthread_join(threads[i], NULL) != 0) {
+            fprintf(stderr, "Error joining thread %d\n", i);
+            exit(1);
+        }
+    }
+
+    printf("All threads have completed\n");
+    return 0;
 }
