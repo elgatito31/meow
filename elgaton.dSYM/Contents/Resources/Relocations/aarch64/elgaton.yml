@@ -2,6 +2,14 @@
 triple:          'arm64-apple-darwin'
 binary-path:     '/Users/farithbascope/Desktop/gatoCodez/vsGato/meow/elgaton'
 relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003F18, symSize: 0x5C }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003F18, symSize: 0x5C }
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _producer, symObjAddr: 0x0, symBinAddr: 0x100003C68, symSize: 0xE4 }
+  - { offsetInCU: 0x3F, offset: 0x3F, size: 0x8, addend: 0x0, symName: _in, symObjAddr: 0xE38, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x5B, offset: 0x5B, size: 0x8, addend: 0x0, symName: _out, symObjAddr: 0xE3C, symBinAddr: 0x100008004, symSize: 0x0 }
+  - { offsetInCU: 0x7E, offset: 0x7E, size: 0x8, addend: 0x0, symName: _buffer, symBinAddr: 0x100008008, symSize: 0x0 }
+  - { offsetInCU: 0x9F, offset: 0x9F, size: 0x8, addend: 0x0, symName: _empty, symBinAddr: 0x100008030, symSize: 0x0 }
+  - { offsetInCU: 0xBF, offset: 0xBF, size: 0x8, addend: 0x0, symName: _full, symBinAddr: 0x100008034, symSize: 0x0 }
+  - { offsetInCU: 0xD4, offset: 0xD4, size: 0x8, addend: 0x0, symName: _mutex, symBinAddr: 0x100008038, symSize: 0x0 }
+  - { offsetInCU: 0x128, offset: 0x128, size: 0x8, addend: 0x0, symName: _producer, symObjAddr: 0x0, symBinAddr: 0x100003C68, symSize: 0xE4 }
+  - { offsetInCU: 0x16C, offset: 0x16C, size: 0x8, addend: 0x0, symName: _consumer, symObjAddr: 0xE4, symBinAddr: 0x100003D4C, symSize: 0xE4 }
+  - { offsetInCU: 0x1CC, offset: 0x1CC, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x1C8, symBinAddr: 0x100003E30, symSize: 0xCC }
 ...
